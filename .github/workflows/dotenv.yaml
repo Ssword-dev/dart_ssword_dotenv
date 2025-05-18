@@ -2,10 +2,10 @@ name: dotenv
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -23,5 +23,7 @@ jobs:
         run: tool/analyze.sh
       - name: Run unit tests
         run: tool/test.sh
+      # generates docs in the git repo
+      # for future homepage maybe
       - name: Generate Docs
         run: tools/docs.sh
