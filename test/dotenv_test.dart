@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart' show MapEquality;
-import 'package:dotenv/src/dotenv.dart';
+import 'package:ssword_dotenv/src/dotenv.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -63,6 +63,16 @@ void main() {
       test('it loads the file', () {
         subj.load(['test/fixtures/.test_env']);
         expect(subj['some_test'], 'value');
+      });
+    });
+
+    group('loadAsync', () {
+      // With our current modifications, it may be a bit unstable so
+      // we test
+      test('it loads the file asyncronously', () async {
+        await subj.loadAsync(['test/fixtures/.test_env_for_async']);
+        expect(subj['some_test_for_async'],
+            'well, congrats! the modification works!');
       });
     });
 

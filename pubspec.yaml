@@ -1,8 +1,9 @@
-name: dotenv
-version: 4.2.0
+name: ssword_dotenv
+version: 1.0.0
 
-description: Load environment variables from a `.env` file.
-homepage: https://github.com/mockturtl/dotenv
+description: A fork of the dotenv package, mainly designed to support async I/O loading
+repository: https://github.com/Ssword-dev/dart_ssword_dotenv
+### TODO: Add a repository instead, i dont have any homepage
 environment:
   sdk: '>=2.16.0 <4.0.0'
 

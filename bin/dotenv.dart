@@ -1,7 +1,10 @@
+/// This will remain unmodified until big changes comes
+/// e.g: security bug fix (if there is, please consider contributing)
+
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:dotenv/dotenv.dart';
+import 'package:ssword_dotenv/ssword_dotenv.dart';
 
 /// Prints the [dotEnv] map.
 ///

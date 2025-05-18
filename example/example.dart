@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dotenv/dotenv.dart';
+import 'package:ssword_dotenv/ssword_dotenv.dart';
 
 void main() {
   var env = DotEnv(includePlatformEnvironment: true)..load();

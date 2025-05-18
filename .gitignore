@@ -2,7 +2,8 @@
 .pub/
 build/
 packages
-doc/
+# for convinence, we will include the generated doc for
+# possibly a vercel site if i make one (it will fetch for this)
 .env*
 !example/.env.example
 .dart_tool/

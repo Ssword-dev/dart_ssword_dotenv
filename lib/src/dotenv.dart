@@ -78,6 +78,22 @@ class DotEnv {
     }
   }
 
+  /// Parses environment variables from each path in [filenames], and adds them
+  /// to the underlying [Map].
+  ///
+  /// Logs to [stderr] if any file does not exist; see [quiet].
+  ///
+  /// An extension of [DotEnv.load]
+  Future<void> loadAsync(
+      [Iterable<String> filenames = const ['.env'],
+      Parser psr = const Parser()]) async {
+    for (var filename in filenames) {
+      var f = File.fromUri(Uri.file(filename));
+      var lines = await _verifyAsync(f);
+      _map.addAll(psr.parse(lines));
+    }
+  }
+
   void _addPlatformEnvironment() => _map.addAll(Platform.environment);
 
   List<String> _verify(File f) {
@@ -86,5 +102,18 @@ class DotEnv {
       return [];
     }
     return f.readAsLinesSync();
+  }
+
+  /// A non blocking future based version of _verify from the original dotenv
+  /// repo [source code](https://github.com/mockturtl/dotenv/blob/master/lib/src/dotenv.dart)
+  Future<List<String>> _verifyAsync(File f) async {
+    bool envExists = await f.exists();
+    if (!envExists) {
+      if (!quiet) stderr.writeln('[dotenv] Load failed: file not found: $f');
+      return [];
+    }
+
+    List<String> envContents = await f.readAsLines();
+    return envContents;
   }
 }

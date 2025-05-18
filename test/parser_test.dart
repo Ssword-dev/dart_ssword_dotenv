@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:dotenv/src/parser.dart';
+import 'package:ssword_dotenv/src/parser.dart';
 import 'package:test/test.dart';
 
 void main() {

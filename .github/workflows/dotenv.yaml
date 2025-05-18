@@ -23,3 +23,5 @@ jobs:
         run: tool/analyze.sh
       - name: Run unit tests
         run: tool/test.sh
+      - name: Generate Docs
+        run: tools/docs.sh
