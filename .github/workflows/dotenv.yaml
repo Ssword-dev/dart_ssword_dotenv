@@ -26,4 +26,4 @@ jobs:
       # generates docs in the git repo
       # for future homepage maybe
       - name: Generate Docs
-        run: tools/docs.sh
+        run: tool/docs.sh
